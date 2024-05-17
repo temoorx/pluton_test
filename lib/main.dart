@@ -6,7 +6,6 @@ import 'package:pluton_test/domain/repository/api_repository.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipe_search_cubit.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipt_detail_cubit.dart';
 import 'package:pluton_test/features/recipe/presentation/view/home_screen.dart';
-import 'features/recipe/presentation/view/search_screen/search_screen.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';

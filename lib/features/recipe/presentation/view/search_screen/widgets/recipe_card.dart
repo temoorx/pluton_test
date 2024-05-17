@@ -38,7 +38,7 @@ class RecipeCard extends StatelessWidget {
             favorites.add(title);
             await prefs.setStringList('favorites', favorites);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.favorite,
           ),
         ),
