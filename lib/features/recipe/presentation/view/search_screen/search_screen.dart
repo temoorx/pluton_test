@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipe_search_cubit.dart';
-import 'package:pluton_test/features/recipe/presentation/view/widgets/recipe_card.dart';
-import 'package:pluton_test/features/recipe/presentation/view/widgets/search_bar.dart';
+import 'package:pluton_test/features/recipe/presentation/view/search_screen/widgets/recipe_card.dart';
+import 'package:pluton_test/features/recipe/presentation/view/search_screen/widgets/search_bar.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class RecipeSearchScreen extends StatelessWidget {
@@ -56,6 +56,7 @@ class RecipeSearchScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final recipe = state.recipes[index];
                           return RecipeCard(
+                            id: recipe.id,
                             image: recipe.image,
                             title: recipe.title,
                           );
