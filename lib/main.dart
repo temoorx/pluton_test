@@ -13,6 +13,7 @@ import 'package:pluton_test/features/recipe/presentation/views/home_screen.dart'
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pluton_test/theme/cubit/theme_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
+          BlocProvider(create: (context) => ThemeCubit()),
           BlocProvider(
               create: (context) => RecipeDetailCubit(GetIt.I<ApiRepository>())),
           BlocProvider(
@@ -47,16 +49,17 @@ class MyApp extends StatelessWidget {
             create: (context) => HiveStorageCubit(),
           ),
         ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Pluton Test',
-          theme: FlexThemeData.light(
-              scheme: FlexScheme.mandyRed,
-              textTheme: Typography.blackCupertino),
-          darkTheme: FlexThemeData.dark(
-              scheme: FlexScheme.mandyRed,
-              textTheme: Typography.whiteCupertino),
-          home: const HomeScreen(),
+        child: BlocBuilder<ThemeCubit, ThemeState>(
+          builder: (context, state) {
+            return MaterialApp(
+              title: 'Pluton Test',
+              theme: FlexColorScheme.light(scheme: FlexScheme.mandyRed).toTheme,
+              darkTheme:
+                  FlexColorScheme.dark(scheme: FlexScheme.mandyRed).toTheme,
+              themeMode: state.isDark ? ThemeMode.dark : ThemeMode.light,
+              home: const HomeScreen(),
+            );
+          },
         ));
   }
 }

@@ -1,7 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluton_test/features/recipe/presentation/views/fav_recipe_screen/fav_recipe_screen.dart';
 import 'package:pluton_test/features/recipe/presentation/views/search_screen/search_screen.dart';
+import 'package:pluton_test/theme/cubit/theme_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,6 +14,18 @@ class HomeScreen extends StatelessWidget {
       length: 2, // Number of tabs
       child: Scaffold(
         appBar: AppBar(
+          leading: BlocBuilder<ThemeCubit, ThemeState>(
+            builder: (context, state) {
+              return IconButton(
+                icon: state.isDark
+                    ? const Icon(Icons.light_mode)
+                    : const Icon(Icons.dark_mode),
+                onPressed: () {
+                  context.read<ThemeCubit>().toggleTheme();
+                },
+              );
+            },
+          ),
           title: AnimatedTextKit(
             repeatForever: false,
             totalRepeatCount: 1,
