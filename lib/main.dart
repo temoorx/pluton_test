@@ -50,8 +50,12 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Pluton Test',
-          theme: FlexThemeData.light(scheme: FlexScheme.mandyRed),
-          darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+          theme: FlexThemeData.light(
+              scheme: FlexScheme.mandyRed,
+              textTheme: Typography.blackCupertino),
+          darkTheme: FlexThemeData.dark(
+              scheme: FlexScheme.mandyRed,
+              textTheme: Typography.whiteCupertino),
           home: const HomeScreen(),
         ));
   }
