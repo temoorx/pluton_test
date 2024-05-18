@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
             return MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: 'Pluton Test',
               theme: FlexColorScheme.light(scheme: FlexScheme.mandyRed).toTheme,
               darkTheme:

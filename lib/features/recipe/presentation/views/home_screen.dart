@@ -18,8 +18,8 @@ class HomeScreen extends StatelessWidget {
             builder: (context, state) {
               return IconButton(
                 icon: state.isDark
-                    ? const Icon(Icons.light_mode)
-                    : const Icon(Icons.dark_mode),
+                    ? const Icon(Icons.dark_mode)
+                    : const Icon(Icons.light_mode),
                 onPressed: () {
                   context.read<ThemeCubit>().toggleTheme();
                 },
