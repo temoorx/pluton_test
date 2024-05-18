@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'recipt_detail_dto.dart';
+part of 'recipe_detail_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ReciptDetails _$ReciptDetailsFromJson(Map<String, dynamic> json) =>
-    ReciptDetails(
+RecipeDetails _$RecipeDetailsFromJson(Map<String, dynamic> json) =>
+    RecipeDetails(
       id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       image: json['image'] as String?,
@@ -53,7 +53,7 @@ ReciptDetails _$ReciptDetailsFromJson(Map<String, dynamic> json) =>
           : WinePairing.fromJson(json['winePairing'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ReciptDetailsToJson(ReciptDetails instance) =>
+Map<String, dynamic> _$RecipeDetailsToJson(RecipeDetails instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

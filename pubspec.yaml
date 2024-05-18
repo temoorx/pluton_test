@@ -48,13 +48,17 @@ dependencies:
   skeletonizer: ^1.1.2+1
   cached_network_image: ^3.3.1
   shared_preferences: ^2.2.3
+  hive: ^2.2.3
+  hive_flutter:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator:  
   build_runner: ^2.4.8
   freezed: ^2.4.7
   json_serializable: ^6.7.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

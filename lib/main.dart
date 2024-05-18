@@ -1,8 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pluton_test/core/networks/recipe_api.dart';
+import 'package:pluton_test/domain/adapters.dart';
 import 'package:pluton_test/domain/repository/api_repository.dart';
+import 'package:pluton_test/domain/repository/cubit/hive_storage_cubit.dart';
+import 'package:pluton_test/features/recipe/models/recipe_detail_dto.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipe_search_cubit.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipt_detail_cubit.dart';
 import 'package:pluton_test/features/recipe/presentation/view/home_screen.dart';
@@ -10,7 +14,11 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(RecipeDetailsAdapter());
+  await Hive.openBox<RecipeDetails>('recipes');
   GetIt.I.registerSingleton<ApiRepository>(
     ApiRepository(
       remoteDataSource: RecipeApi(
@@ -29,11 +37,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (context) => ReciptDetailCubit(GetIt.I<ApiRepository>())),
+              create: (context) => RecipeDetailCubit(GetIt.I<ApiRepository>())),
           BlocProvider(
             create: (context) => RecipeSearchCubit(
               GetIt.I<ApiRepository>(),
             ),
+          ),
+          BlocProvider(
+            create: (context) => HiveStorageCubit(),
           ),
         ],
         child: MaterialApp(

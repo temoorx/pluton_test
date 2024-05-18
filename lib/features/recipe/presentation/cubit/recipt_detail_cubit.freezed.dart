@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ReciptDetailState {
+mixin _$RecipeDetailState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ReciptDetails reciptDetails) loaded,
+    required TResult Function(RecipeDetails reciptDetails) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ReciptDetailState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ReciptDetails reciptDetails)? loaded,
+    TResult? Function(RecipeDetails reciptDetails)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ReciptDetailState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ReciptDetails reciptDetails)? loaded,
+    TResult Function(RecipeDetails reciptDetails)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -69,16 +69,16 @@ mixin _$ReciptDetailState {
 }
 
 /// @nodoc
-abstract class $ReciptDetailStateCopyWith<$Res> {
-  factory $ReciptDetailStateCopyWith(
-          ReciptDetailState value, $Res Function(ReciptDetailState) then) =
-      _$ReciptDetailStateCopyWithImpl<$Res, ReciptDetailState>;
+abstract class $RecipeDetailStateCopyWith<$Res> {
+  factory $RecipeDetailStateCopyWith(
+          RecipeDetailState value, $Res Function(RecipeDetailState) then) =
+      _$RecipeDetailStateCopyWithImpl<$Res, RecipeDetailState>;
 }
 
 /// @nodoc
-class _$ReciptDetailStateCopyWithImpl<$Res, $Val extends ReciptDetailState>
-    implements $ReciptDetailStateCopyWith<$Res> {
-  _$ReciptDetailStateCopyWithImpl(this._value, this._then);
+class _$RecipeDetailStateCopyWithImpl<$Res, $Val extends RecipeDetailState>
+    implements $RecipeDetailStateCopyWith<$Res> {
+  _$RecipeDetailStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ReciptDetailStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$RecipeDetailStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -109,7 +109,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'ReciptDetailState.initial()';
+    return 'RecipeDetailState.initial()';
   }
 
   @override
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ReciptDetails reciptDetails) loaded,
+    required TResult Function(RecipeDetails reciptDetails) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ReciptDetails reciptDetails)? loaded,
+    TResult? Function(RecipeDetails reciptDetails)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ReciptDetails reciptDetails)? loaded,
+    TResult Function(RecipeDetails reciptDetails)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -196,7 +196,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements ReciptDetailState {
+abstract class _Initial implements RecipeDetailState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -209,7 +209,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ReciptDetailStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$RecipeDetailStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -223,7 +223,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'ReciptDetailState.loading()';
+    return 'RecipeDetailState.loading()';
   }
 
   @override
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ReciptDetails reciptDetails) loaded,
+    required TResult Function(RecipeDetails reciptDetails) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ReciptDetails reciptDetails)? loaded,
+    TResult? Function(RecipeDetails reciptDetails)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ReciptDetails reciptDetails)? loaded,
+    TResult Function(RecipeDetails reciptDetails)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -310,7 +310,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements ReciptDetailState {
+abstract class _Loading implements RecipeDetailState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -320,12 +320,12 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ReciptDetails reciptDetails});
+  $Res call({RecipeDetails reciptDetails});
 }
 
 /// @nodoc
 class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$ReciptDetailStateCopyWithImpl<$Res, _$LoadedImpl>
+    extends _$RecipeDetailStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
@@ -340,7 +340,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
       null == reciptDetails
           ? _value.reciptDetails
           : reciptDetails // ignore: cast_nullable_to_non_nullable
-              as ReciptDetails,
+              as RecipeDetails,
     ));
   }
 }
@@ -351,11 +351,11 @@ class _$LoadedImpl implements _Loaded {
   const _$LoadedImpl(this.reciptDetails);
 
   @override
-  final ReciptDetails reciptDetails;
+  final RecipeDetails reciptDetails;
 
   @override
   String toString() {
-    return 'ReciptDetailState.loaded(reciptDetails: $reciptDetails)';
+    return 'RecipeDetailState.loaded(reciptDetails: $reciptDetails)';
   }
 
   @override
@@ -381,7 +381,7 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ReciptDetails reciptDetails) loaded,
+    required TResult Function(RecipeDetails reciptDetails) loaded,
     required TResult Function(String message) error,
   }) {
     return loaded(reciptDetails);
@@ -392,7 +392,7 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ReciptDetails reciptDetails)? loaded,
+    TResult? Function(RecipeDetails reciptDetails)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loaded?.call(reciptDetails);
@@ -403,7 +403,7 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ReciptDetails reciptDetails)? loaded,
+    TResult Function(RecipeDetails reciptDetails)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -451,10 +451,10 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements ReciptDetailState {
-  const factory _Loaded(final ReciptDetails reciptDetails) = _$LoadedImpl;
+abstract class _Loaded implements RecipeDetailState {
+  const factory _Loaded(final RecipeDetails reciptDetails) = _$LoadedImpl;
 
-  ReciptDetails get reciptDetails;
+  RecipeDetails get reciptDetails;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -471,7 +471,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$ReciptDetailStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$RecipeDetailStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -501,7 +501,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'ReciptDetailState.error(message: $message)';
+    return 'RecipeDetailState.error(message: $message)';
   }
 
   @override
@@ -526,7 +526,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ReciptDetails reciptDetails) loaded,
+    required TResult Function(RecipeDetails reciptDetails) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -537,7 +537,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ReciptDetails reciptDetails)? loaded,
+    TResult? Function(RecipeDetails reciptDetails)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -548,7 +548,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ReciptDetails reciptDetails)? loaded,
+    TResult Function(RecipeDetails reciptDetails)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -596,7 +596,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements ReciptDetailState {
+abstract class _Error implements RecipeDetailState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;

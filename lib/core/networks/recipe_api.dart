@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pluton_test/constants/api_constants.dart';
 import 'package:pluton_test/features/recipe/models/recipe_dto.dart';
-import 'package:pluton_test/features/recipe/models/recipt_detail_dto.dart';
+import 'package:pluton_test/features/recipe/models/recipe_detail_dto.dart';
 
 class RecipeApi {
   final Dio dio;
@@ -28,7 +28,7 @@ class RecipeApi {
     }
   }
 
-  Future<ReciptDetails> getReciptDetail({required int id}) async {
+  Future<RecipeDetails> getRecipeDetail({required int id}) async {
     try {
       final response = await dio.get(
         '${ApiConstants.baseUrl}recipes/$id/information',
@@ -40,7 +40,7 @@ class RecipeApi {
           },
         ),
       );
-      return ReciptDetails.fromJson(response.data);
+      return RecipeDetails.fromJson(response.data);
     } catch (e) {
       throw Exception('Failed to load recipe detail');
     }

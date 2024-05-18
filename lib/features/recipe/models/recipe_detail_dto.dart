@@ -1,8 +1,10 @@
+import 'package:hive/hive.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'recipt_detail_dto.g.dart';
+
+part 'recipe_detail_dto.g.dart';
 
 @JsonSerializable()
-class ReciptDetails {
+class RecipeDetails {
   int? id;
   String? title;
   String? image;
@@ -40,7 +42,7 @@ class ReciptDetails {
   String? summary;
   WinePairing? winePairing;
 
-  ReciptDetails({
+  RecipeDetails({
     this.id,
     this.title,
     this.image,
@@ -79,10 +81,10 @@ class ReciptDetails {
     this.winePairing,
   });
 
-  factory ReciptDetails.fromJson(Map<String, dynamic> json) =>
-      _$ReciptDetailsFromJson(json);
+  factory RecipeDetails.fromJson(Map<String, dynamic> json) =>
+      _$RecipeDetailsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ReciptDetailsToJson(this);
+  Map<String, dynamic> toJson() => _$RecipeDetailsToJson(this);
 }
 
 @JsonSerializable()
