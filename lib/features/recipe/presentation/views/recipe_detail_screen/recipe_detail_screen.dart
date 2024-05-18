@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pluton_test/domain/repository/cubit/hive_storage_cubit.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipt_detail_cubit.dart';
-import 'package:pluton_test/features/recipe/presentation/view/recipe_detail_screen/widgets/recipe_detail_header.dart';
-import 'package:pluton_test/features/recipe/presentation/view/recipe_detail_screen/widgets/recipe_detail_info_row.dart';
-import 'package:pluton_test/features/recipe/presentation/view/recipe_detail_screen/widgets/recipe_detail_section_title.dart';
+import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_header.dart';
+import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_info_row.dart';
+import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_section_title.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   const RecipeDetailScreen({super.key, required this.id, required this.title});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipe_search_cubit.dart';
-import 'package:pluton_test/features/recipe/presentation/view/search_screen/widgets/recipe_card.dart';
-import 'package:pluton_test/features/recipe/presentation/view/search_screen/widgets/search_bar.dart';
+import 'package:pluton_test/features/recipe/presentation/views/search_screen/widgets/recipe_card.dart';
+import 'package:pluton_test/features/recipe/presentation/views/search_screen/widgets/search_bar.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class RecipeSearchScreen extends StatelessWidget {
@@ -11,10 +11,6 @@ class RecipeSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Recipe Search'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(

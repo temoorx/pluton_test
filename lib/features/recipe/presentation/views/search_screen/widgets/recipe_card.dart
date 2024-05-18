@@ -2,9 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:pluton_test/features/recipe/presentation/view/recipe_detail_screen/recipe_detail_screen.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/recipe_detail_screen.dart';
 
 class RecipeCard extends StatelessWidget {
   const RecipeCard({

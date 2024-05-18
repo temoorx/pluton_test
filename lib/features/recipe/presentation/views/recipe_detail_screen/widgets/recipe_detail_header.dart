@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pluton_test/domain/repository/cubit/hive_storage_cubit.dart';
+import 'package:pluton_test/domain/cubit/hive_storage_cubit.dart';
 import 'package:pluton_test/features/recipe/models/recipe_detail_dto.dart';
 
 class RecipeDetailHeader extends StatefulWidget {
@@ -45,9 +45,19 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
         Positioned(
           top: 10,
           left: 10,
-          child: IconButton(
-            icon: const Icon(Icons.close, color: Colors.white),
-            onPressed: () => Navigator.of(context).pop(),
+          child: Container(
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.black.withOpacity(0.3)),
+            child: IconButton(
+              icon: const Icon(
+                Icons.close,
+                color: Colors.white,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
           ),
         ),
         Positioned(

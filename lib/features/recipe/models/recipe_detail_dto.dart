@@ -1,4 +1,3 @@
-import 'package:hive/hive.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipe_detail_dto.g.dart';
