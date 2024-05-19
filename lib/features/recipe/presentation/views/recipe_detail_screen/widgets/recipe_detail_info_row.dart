@@ -14,13 +14,14 @@ class RecipeDetailInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-      child: Row(
+      child: Column(
         children: [
           Text(
             '$label ',
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
-          Expanded(child: Text(value)),
+          const SizedBox(height: 10.0),
+          Text(value),
         ],
       ),
     );

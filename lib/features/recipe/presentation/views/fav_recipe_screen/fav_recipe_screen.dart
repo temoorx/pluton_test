@@ -42,13 +42,13 @@ class FavRecipes extends StatelessWidget {
                           color: Colors.red,
                         ),
                         alignment: Alignment.centerRight,
-                        child: const Icon(Icons.delete, color: Colors.white),
+                        child: const Padding(
+                          padding: EdgeInsets.only(right: 10.0),
+                          child: Icon(Icons.delete, color: Colors.white),
+                        ),
                       ),
                       key: ValueKey(recipe.id),
                       direction: DismissDirection.endToStart,
-                      dismissThresholds: const {
-                        DismissDirection.endToStart: 0.5
-                      },
                       onDismissed: (direction) {
                         context
                             .read<HiveStorageCubit>()
@@ -57,22 +57,28 @@ class FavRecipes extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: ListTile(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) => RecipeDetailScreen(
-                                id: recipe.id!,
-                                title: recipe.title!,
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => RecipeDetailScreen(
+                                  id: recipe.id!,
+                                  title: recipe.title!,
+                                ),
+                              );
+                            },
+                            leading: CachedNetworkImage(
+                                imageUrl: recipe.image ?? '',
+                                width: 50,
+                                height: 50,
+                                fit: BoxFit.cover),
+                            title: Text(recipe.title ?? 'Untitled'),
+                            trailing: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
                               ),
-                            );
-                          },
-                          leading: CachedNetworkImage(
-                              imageUrl: recipe.image ?? '',
-                              width: 50,
-                              height: 50,
-                              fit: BoxFit.cover),
-                          title: Text(recipe.title ?? 'Untitled'),
-                        ),
+                            )),
                       ),
                     );
                   },

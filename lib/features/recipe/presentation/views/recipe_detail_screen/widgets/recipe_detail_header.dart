@@ -46,8 +46,6 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
           top: 10,
           left: 10,
           child: Container(
-            height: 40,
-            width: 40,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.black.withOpacity(0.3)),

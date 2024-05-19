@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipt_detail_cubit.dart';
@@ -32,27 +33,32 @@ class RecipeDetailScreen extends StatelessWidget {
                       recipe: recipe,
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
-                    RecipeDetailInfoRow(
-                        label: 'Servings:', value: recipe.servings.toString()),
-                    RecipeDetailInfoRow(
-                        label: 'Ready in:',
-                        value: '${recipe.readyInMinutes} minutes'),
-                    RecipeDetailInfoRow(
-                        label: 'Health Score:',
-                        value: recipe.healthScore.toString()),
-                    RecipeDetailInfoRow(
-                        label: 'Price per serving:',
-                        value:
-                            '\$${recipe.pricePerServing!.toStringAsFixed(2)}'),
-                    RecipeDetailInfoRow(
-                        label: 'Source:', value: recipe.sourceName ?? 'N/A'),
-                    RecipeDetailInfoRow(
-                        label: 'License:', value: recipe.license ?? 'N/A'),
-                    RecipeDetailInfoRow(
-                        label: 'Dish Types:',
-                        value: recipe.dishTypes!.join(", ")),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          RecipeDetailInfoRow(
+                              label: 'Servings:',
+                              value: recipe.servings.toString()),
+                          RecipeDetailInfoRow(
+                              label: 'Ready in:',
+                              value: '${recipe.readyInMinutes} minutes'),
+                          RecipeDetailInfoRow(
+                              label: 'Health Score:',
+                              value: recipe.healthScore.toString()),
+                          RecipeDetailInfoRow(
+                              label: 'Price per serving:',
+                              value:
+                                  '\$${recipe.pricePerServing!.toStringAsFixed(2)}'),
+                          RecipeDetailInfoRow(
+                              label: 'Source:',
+                              value: recipe.sourceName ?? 'N/A'),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
                     recipe.winePairing!.pairedWines!.isEmpty
                         ? const Column()
                         : const RecipeDetailSectionTitle(
@@ -74,31 +80,58 @@ class RecipeDetailScreen extends StatelessWidget {
                     //     style: const TextStyle(fontSize: 16),
                     //   ),
                     // ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const RecipeDetailSectionTitle(title: 'Ingredients:'),
-                    ListView.builder(
+                    GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                      ),
                       itemCount: recipe.extendedIngredients!.length,
                       itemBuilder: (context, index) {
                         final ingredient = recipe.extendedIngredients![index];
-                        return ListTile(
-                          title: Text(ingredient.name!),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
                             children: [
+                              Image.network(
+                                'https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}',
+                                height: 50,
+                                width: 50,
+                              ),
+                              const SizedBox(height: 10),
+                              Text(ingredient.name!.capitalize,
+                                  maxLines: 1,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                  )),
                               Text(
-                                  'Amount: ${ingredient.amount} ${ingredient.unit}'),
-                              Text('Aisle: ${ingredient.aisle}'),
+                                '${ingredient.amount} ${ingredient.unit}',
+                                maxLines: 1,
+                                style: const TextStyle(fontSize: 12),
+                              ),
                             ],
                           ),
-                          // leading: Image.network(ingredient.image!),
                         );
                       },
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const RecipeDetailSectionTitle(title: 'Summary:'),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.only(
+                          top: 10.0, left: 16.0, right: 16.0),
                       child: Text(recipe.summary!),
+                    ),
+                    const SizedBox(
+                      height: 20,
                     ),
                     const RecipeDetailSectionTitle(
                         title: 'Wine Product Matches:'),
