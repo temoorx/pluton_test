@@ -46,13 +46,29 @@ class RecipeCard extends StatelessWidget {
           //   ),
           // ),
           onTap: () {
-            showDialog(
+            showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
-              builder: (context) => BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: RecipeDetailScreen(
-                  title: title,
-                  id: id,
+              enableDrag: true,
+              backgroundColor: Colors.transparent,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+              ),
+              builder: (context) => Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(20.0)),
+                    ),
+                    child: RecipeDetailScreen(
+                      id: id,
+                      title: title,
+                    ),
+                  ),
                 ),
               ),
             );

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,11 +60,34 @@ class FavRecipes extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: ListTile(
                             onTap: () {
-                              showDialog(
+                              showModalBottomSheet(
+                                isScrollControlled: true,
                                 context: context,
-                                builder: (context) => RecipeDetailScreen(
-                                  id: recipe.id!,
-                                  title: recipe.title!,
+                                enableDrag: true,
+                                backgroundColor: Colors.transparent,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(20.0)),
+                                ),
+                                builder: (context) => Padding(
+                                  padding: const EdgeInsets.only(top: 100.0),
+                                  child: BackdropFilter(
+                                    filter:
+                                        ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context)
+                                            .scaffoldBackgroundColor,
+                                        borderRadius:
+                                            const BorderRadius.vertical(
+                                                top: Radius.circular(20.0)),
+                                      ),
+                                      child: RecipeDetailScreen(
+                                        id: recipe.id!,
+                                        title: recipe.title!,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               );
                             },
