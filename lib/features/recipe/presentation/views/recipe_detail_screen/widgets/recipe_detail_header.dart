@@ -45,17 +45,35 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
         Positioned(
           top: 10,
           left: 10,
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.black.withOpacity(0.3)),
-            child: IconButton(
-              icon: const Icon(
-                Icons.close,
-                color: Colors.white,
+          child: Stack(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: const EdgeInsets.all(8.0),
+                  child: const Row(
+                    children: [
+                      //close button
+                      Icon(Icons.close, color: Colors.white),
+                      SizedBox(width: 5),
+                      Text(
+                        'Close',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+            ],
           ),
         ),
         Positioned(
@@ -63,8 +81,9 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
           right: 10,
           child: IconButton(
             icon: _isSaved
-                ? const Icon(Icons.favorite, color: Colors.red)
-                : const Icon(Icons.favorite_border, color: Colors.white),
+                ? const Icon(Icons.favorite, color: Colors.red, size: 30.0)
+                : const Icon(Icons.favorite_border,
+                    color: Colors.white, size: 30.0),
             onPressed: _toggleSavedState,
           ),
         ),
@@ -78,6 +97,31 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
               fontWeight: FontWeight.bold,
               color: Colors.white,
               backgroundColor: Colors.black54,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 50,
+          right: 10,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.black54,
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                const Icon(Icons.star, color: Colors.yellow),
+                const SizedBox(width: 5),
+                Text(
+                  "Score: ${widget.recipe.spoonacularScore}",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

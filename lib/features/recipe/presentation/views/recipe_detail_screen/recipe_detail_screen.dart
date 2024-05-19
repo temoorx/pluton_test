@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluton_test/features/recipe/presentation/cubit/recipt_detail_cubit.dart';
 import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_header.dart';
 import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_info_row.dart';
+import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_loading.dart';
 import 'package:pluton_test/features/recipe/presentation/views/recipe_detail_screen/widgets/recipe_detail_section_title.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   const RecipeDetailScreen({super.key, required this.id, required this.title});
@@ -22,7 +24,7 @@ class RecipeDetailScreen extends StatelessWidget {
           builder: (context, state) {
             return state.maybeWhen(
               orElse: () => const Center(child: CircularProgressIndicator()),
-              loading: () => const Center(child: CircularProgressIndicator()),
+              loading: () => const RecipeDetailLoading(),
               loaded: (recipe) => SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

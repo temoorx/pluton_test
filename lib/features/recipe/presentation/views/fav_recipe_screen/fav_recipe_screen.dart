@@ -66,11 +66,15 @@ class FavRecipes extends StatelessWidget {
                                 ),
                               );
                             },
-                            leading: CachedNetworkImage(
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: CachedNetworkImage(
                                 imageUrl: recipe.image ?? '',
                                 width: 50,
                                 height: 50,
-                                fit: BoxFit.cover),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                             title: Text(recipe.title ?? 'Untitled'),
                             trailing: IconButton(
                               onPressed: () {},

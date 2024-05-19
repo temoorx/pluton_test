@@ -23,11 +23,14 @@ class RecipeCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: ListTile(
           title: Text(title),
-          leading: CachedNetworkImage(
-            imageUrl: image,
-            width: 50,
-            height: 50,
-            fit: BoxFit.cover,
+          leading: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: CachedNetworkImage(
+              imageUrl: image,
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
           ),
           // trailing: IconButton(
           //   onPressed: () async {
