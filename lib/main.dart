@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           builder: (context, state) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Pluton Test',
+              title: 'Recipe Realm',
               theme: FlexColorScheme.light(scheme: FlexScheme.mandyRed).toTheme,
               darkTheme:
                   FlexColorScheme.dark(scheme: FlexScheme.mandyRed).toTheme,
