@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pluton_test/domain/cubit/hive_storage_cubit.dart';
 import 'package:pluton_test/features/recipe/models/recipe_detail_dto.dart';
 
-class RecipeDetailHeader extends StatefulWidget {
+class RecipeDetailHeader extends StatelessWidget {
   const RecipeDetailHeader({
     Key? key,
     required this.imageUrl,
@@ -17,26 +17,15 @@ class RecipeDetailHeader extends StatefulWidget {
   final RecipeDetails recipe;
 
   @override
-  State<RecipeDetailHeader> createState() => _RecipeDetailHeaderState();
-}
-
-class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
-  late bool _isSaved;
-
-  @override
-  void initState() {
-    super.initState();
-    _isSaved = context.read<HiveStorageCubit>().isSaved(widget.recipe.id!);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    bool isSaved;
+    isSaved = context.read<HiveStorageCubit>().isSaved(recipe.id!);
     return Stack(
       children: [
         ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20.0)),
           child: CachedNetworkImage(
-            imageUrl: widget.imageUrl,
+            imageUrl: imageUrl,
             width: double.infinity,
             height: 200,
             fit: BoxFit.cover,
@@ -79,19 +68,33 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
         Positioned(
           top: 10,
           right: 10,
-          child: IconButton(
-            icon: _isSaved
-                ? const Icon(Icons.favorite, color: Colors.red, size: 30.0)
-                : const Icon(Icons.favorite_border,
-                    color: Colors.white, size: 30.0),
-            onPressed: _toggleSavedState,
+          child: StatefulBuilder(
+            builder: (context, setState) {
+              return IconButton(
+                icon: isSaved
+                    ? const Icon(Icons.favorite, color: Colors.red, size: 30.0)
+                    : const Icon(Icons.favorite_border,
+                        color: Colors.white, size: 30.0),
+                onPressed: () {
+                  final cubit = context.read<HiveStorageCubit>();
+                  if (isSaved) {
+                    cubit.deleteRecipe(recipe.id!);
+                  } else {
+                    cubit.saveRecipe(recipe);
+                  }
+                  setState(() {
+                    isSaved = !isSaved;
+                  });
+                },
+              );
+            },
           ),
         ),
         Positioned(
           bottom: 10,
           left: 16,
           child: Text(
-            widget.title,
+            title,
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -115,7 +118,7 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
                 const Icon(Icons.star, color: Colors.yellow),
                 const SizedBox(width: 5),
                 Text(
-                  "Score: ${widget.recipe.spoonacularScore}",
+                  "Score: ${recipe.spoonacularScore}",
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -127,17 +130,5 @@ class _RecipeDetailHeaderState extends State<RecipeDetailHeader> {
         ),
       ],
     );
-  }
-
-  void _toggleSavedState() {
-    final cubit = context.read<HiveStorageCubit>();
-    if (_isSaved) {
-      cubit.deleteRecipe(widget.recipe.id!);
-    } else {
-      cubit.saveRecipe(widget.recipe);
-    }
-    setState(() {
-      _isSaved = !_isSaved;
-    });
   }
 }
